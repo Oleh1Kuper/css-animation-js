@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  position: relative;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #262626;
+}
+
+a::after {
+  content: '\f303';
+  font-family: fontAwesome;
+  position: absolute;
+  top: -16px;
+  left: 0;
+  color: #262626;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transform-origin: top left;
+  transform: scale(0);
+  background-color: #262626;
+  transition: all .3s;
+}
+
+a:hover::after {
+  animation: draw 1s linear 1 forwards;
+}
+
+a:hover::before {
+  transform: scale(1);
+  transition-delay: 0.7s;
+}
+
+@keyframes draw {
+  0% {
+    left: 0;
+  }
+
+  20% {
+    left: 100%;
+    top: -16px;
+  }
+
+  30% {
+    left: 100%;
+    top: calc(100% - 16px);
+  }
+
+  60% {
+    left: 0;
+    top: 16px;
+  }
+
+  70% {
+    left: 0;
+    top: -16px;
+  }
+
+  100% {
+    left: 100%;
+    top: calc(100% - 16px);
+  }
+}
+
+span {
+  position: absolute;
+  display: block;
+  background-color: #262626;
+  opacity: 0;
+}
+
+a:hover span {
+  opacity: 1;
+}
+
+a:hover {
+  color: #fff;
+  transition-delay: 1s;
+}
+
+span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: all .3s;
+}
+
+span:nth-child(2) {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 0;
+  transition: all .2s;
+}
+
+span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 1px;
+  transition: all .3s;
+}
+
+span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  transition: all .2s;
+}
+
+a:hover span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+a:hover span:nth-child(2) {
+  transition-delay: .3s;
+  height: 100%;
+}
+
+a:hover span:nth-child(3) {
+  transition-delay: .5s;
+  width: 100%;
+}
+
+a:hover span:nth-child(4) {
+  transition-delay: .6s;
+  height: 100%;
+}

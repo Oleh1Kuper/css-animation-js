@@ -1,0 +1,16 @@
+.banner {
+  height: 100vh;
+  background: url(bg.png);
+  background-position: 0 0;
+  animation: bg 5s linear infinite;
+}
+
+@keyframes bg {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 800px 600px;
+  }
+}
